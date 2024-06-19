@@ -1,12 +1,11 @@
 <script>
 import Loader from '../components/partials/Loader.vue'
-import Services from '@/components/partials/partialsHome/Services.vue';
+
    export default {
     name: 'Home',
 
     components:{
       Loader,
-      Services
     }
      
   }
@@ -19,7 +18,6 @@ import Services from '@/components/partials/partialsHome/Services.vue';
 
     <h1>Home</h1>
     <Loader />
-    <Services />
 
   </div>
 
