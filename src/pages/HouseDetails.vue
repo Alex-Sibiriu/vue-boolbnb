@@ -1,13 +1,10 @@
 <script>
-import Loader from '../components/partials/Loader.vue'
+import axios from 'axios';
+import {store} from '../data/store';
 
    export default {
-    name: 'Home',
+    name: 'HouseDetail',
 
-    components:{
-      Loader,
-    
-    }
      
   }
 </script>
@@ -17,8 +14,8 @@ import Loader from '../components/partials/Loader.vue'
 
   <div class="container my-3">
 
-    <h1>Home</h1>
-    <Loader />
+    <h1>House detail</h1>
+    
 
 
   </div>
