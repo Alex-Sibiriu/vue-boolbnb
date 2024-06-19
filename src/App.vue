@@ -16,11 +16,11 @@ import Footer from './components/partials/Footer.vue';
 
 <div class="container"></div>
 
- <Header />
+  <Header />
 
- <router-view></router-view>
+  <router-view></router-view>
 
- <Footer />
+  <Footer />
   
 </template>
 
