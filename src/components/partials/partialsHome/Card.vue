@@ -1,7 +1,7 @@
 <script>
-import {store} from '../../data/store';
+import {store} from '../../../data/store.js';
 import axios from 'axios';
-import Loader from '../partials/Loader.vue';
+import Loader from '../../partials/Loader.vue';
 
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -125,7 +125,7 @@ import Loader from '../partials/Loader.vue';
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/partials/variables.scss';
+@import '../../../assets/scss/partials/variables.scss';
 
 h2{
   color: rgb(6, 45, 77);

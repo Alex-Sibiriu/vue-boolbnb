@@ -1,12 +1,15 @@
 <script>
 import Loader from '../components/partials/Loader.vue'
+import Card from '../components/partials/partialsHome/Card.vue';
+import Services from '../components/partials/partialsHome/Services.vue';
 
    export default {
     name: 'Home',
 
     components:{
       Loader,
-    
+      Card,
+      Services,
     }
      
   }
@@ -17,8 +20,9 @@ import Loader from '../components/partials/Loader.vue'
 
   <div class="container my-3">
 
-    <h1>Home</h1>
     <Loader />
+    <Card />
+    <Services />
 
 
   </div>
