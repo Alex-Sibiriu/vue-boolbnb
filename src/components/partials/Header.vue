@@ -1,5 +1,30 @@
+<script>
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+
+  // Import Swiper styles
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+  import 'swiper/css/navigation';
+
+  // import required modules
+  import { Autoplay, Navigation } from 'swiper/modules';
+
+  export default {
+    components: {
+      Swiper,
+      SwiperSlide,
+    },
+    setup() {
+      return {
+        modules: [Autoplay, Navigation],
+      };
+    },
+  };
+</script>
+
 <template>
-  <div class=" position-relative">
+  <div class=" position-relative" v-if="$route.name === 'home'">
     <swiper
     :spaceBetween="0"
     :centeredSlides="true"
@@ -47,35 +72,22 @@
     </div>
 
   </div>
+
+  <header v-else>
+    <nav class="d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <img src="/img/castello-aborto.png" alt="aborto" >
+      </div>
+      <div class="login">
+        <a href=""><i class="fa-solid fa-user"></i></a>
+      </div>
+    </nav>
+  </header>
   
 </template>
 
-<script>
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-
-  // Import Swiper styles
-  import 'swiper/css';
-  import 'swiper/css/pagination';
-  import 'swiper/css/navigation';
-
-  // import required modules
-  import { Autoplay, Navigation } from 'swiper/modules';
-
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
-    setup() {
-      return {
-        modules: [Autoplay, Navigation],
-      };
-    },
-  };
-</script>
-
 <style lang="scss" scoped>
+@use '../../assets/scss/main.scss' as *;
 #app {
   height: 100%;
 }
@@ -145,5 +157,18 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+
+// secondo header 
+header{
+  height: 100px;
+  background-color: $dark-color ;
+  margin-bottom: 10px;
+  .logo{
+    img{
+      width: 10%;
+    }
+  }
 }
 </style>

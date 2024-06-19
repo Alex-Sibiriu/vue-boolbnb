@@ -14,8 +14,6 @@ import Footer from './components/partials/Footer.vue';
 
 <template>
 
-<div class="container"></div>
-
   <Header />
 
   <router-view></router-view>
