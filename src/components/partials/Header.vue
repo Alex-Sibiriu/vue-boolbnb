@@ -13,7 +13,7 @@
     }"
     :navigation="false"
     :modules="modules"
-    class="mySwiper "
+    class="mySwiper"
   >
     
     
