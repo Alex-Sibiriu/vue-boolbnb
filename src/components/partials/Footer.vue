@@ -127,12 +127,14 @@ import { store } from '../../data/store'
   }
 
   // Media Queries
+
   // ----- TABLET -----
+  // da canc
   @media (max-width: 992px){
 
   }
 
-  //  ----- SMARTPHONE -----
+  //  ----- SMARTPHONE --------
   @media (max-width: 768px){
 
   }
