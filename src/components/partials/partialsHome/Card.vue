@@ -83,7 +83,6 @@ import Loader from '../../partials/Loader.vue';
     
 <template>
 
-  <h2 class="text-center mb-5">Castelli sponzorizzati</h2>
   <div v-if="!loading">
 
     
@@ -106,9 +105,8 @@ import Loader from '../../partials/Loader.vue';
 
           <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
 
-          <a href=""><h4>{{ house.title }}</h4></a>
+          <router-link :to="{name: 'houseDetails', params:{slug : house.slug}}"><h4>{{ house.title }}</h4></router-link>
         </div>
-
 
       </div>
 

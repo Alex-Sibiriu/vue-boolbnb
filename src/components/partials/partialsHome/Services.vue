@@ -1,11 +1,16 @@
 <script>
   import { store } from '@/data/store';
   import axios from 'axios';
+  import Loader from '../Loader.vue';
   export default {
+    components:{
+      Loader
+    },
     data(){
       return{
         store,
-        favServices : []
+        favServices : [],
+        loading : true,
       }
     },
     methods:{
@@ -41,7 +46,7 @@
   }
 </script>
 <template>
-  <div class="container ">
+  <div class="container" v-if="!loading">
     <h1 class="text-center fw-bold my-5">Services </h1>
     <div class="row">
       <div class="col">
@@ -51,6 +56,7 @@
       </div>
     </div>
   </div>
+  <Loader v-else />
 </template>
 
 
