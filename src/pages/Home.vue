@@ -3,6 +3,7 @@ import Loader from '../components/partials/Loader.vue'
 import Card from '../components/partials/partialsHome/Card.vue';
 import Services from '../components/partials/partialsHome/Services.vue';
 
+
    export default {
     name: 'Home',
 
@@ -10,6 +11,7 @@ import Services from '../components/partials/partialsHome/Services.vue';
       Loader,
       Card,
       Services,
+
     }
      
   }
@@ -22,6 +24,9 @@ import Services from '../components/partials/partialsHome/Services.vue';
     
     <Card />
     <Services />
+
+    
+    
 
 
   </div>

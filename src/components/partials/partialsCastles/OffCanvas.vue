@@ -1,0 +1,106 @@
+<script>
+import axios from 'axios';
+import {store} from '../../../data/store.js';
+
+
+  export default {
+    name: 'OffCanvas',
+
+    components:{
+      
+    
+    },
+
+    data(){
+      return{
+        store,
+      }
+    },
+
+    methods:{
+      getApi(){
+        axios.get(store.apiUrl + 'services')
+        .then(result =>{
+          store.services = result.data;
+          console.log(result.data);
+          
+        })
+
+        .catch(error =>{
+          console.log(error);
+        })
+      }
+    },
+
+    mounted(){
+      this.getApi();
+    }
+  }
+</script>
+<template>
+
+  <div class="">
+
+   
+    
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Filtri</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form action="">
+
+          <div class="mb-5">
+            <h5>Distanza:</h5>
+
+            <label for="customRange1" class="form-label">Da 0 a 500 km</label>
+            <input type="range" class="form-range" id="customRange1">
+          </div>
+
+          <div class="my-5">
+
+            <label for="rooms" class="form-label"><h5>Numero camere:</h5></label>
+            <input name="rooms" type="number" placeholder="Numero camere"
+            class="form-control w-50" id="rooms"
+            value="" required min="1" max="125" >
+            
+          </div>
+
+          <div class="my-5">
+
+            <label for="bathroom" class="form-label"><h5>Numero bagni:</h5></label>
+            <input name="bathroom" type="number" placeholder="Numero bagni"
+            class="form-control w-50" id="rooms"
+            value="" required min="1" max="125">
+
+          </div>
+    
+          
+          <div class="">
+            <h5>Servizi:</h5>
+  
+            <div class="btn-group m-2" role="group" aria-label="Basic checkbox toggle button group" v-for="service in store.services" :key="service.id">
+              <input type="checkbox" class="btn-check" :id=" service.id " autocomplete="off">
+              <label class="btn btn-outline-primary" :for=" service.id ">{{ service.name }}</label>
+  
+            </div>
+  
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+   
+
+  </div>
+
+</template>
+
+
+<style lang="scss" scoped>
+
+
+</style>
