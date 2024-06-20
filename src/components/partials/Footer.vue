@@ -22,10 +22,10 @@ import { store } from '../../data/store'
     <div class="footer">
       <div class="container">
 
-        <div class="row h-100">
+        <div class="row">
 
           <!-- logo p.iva e sedi -->
-          <div class="col-4 d-flex justify-content-center align-items-center flex-column">
+          <div class="col-4 ">
             <!-- logo sito -->
             <div class="logo-footer">
               <img src="https://i.pinimg.com/736x/56/5c/2a/565c2a824c7c184e326c751a0fb7e73e.jpg" alt="">
@@ -71,8 +71,8 @@ import { store } from '../../data/store'
 <style lang="scss" scoped>
 @import '../../assets/scss/partials/variables';
   .footer{
-    height: 350px;
-    width: 100vw;
+    height: 200px;
+    height: fit-content;
     background-color: $dark-color;
 
     .container{

@@ -92,7 +92,7 @@ import Loader from '../components/partials/Loader.vue';
 
 <style lang="scss" scoped>
 .container{
-  height: 100vh;
+  min-height: calc(100vh - 300px);
 }
 
 </style>
