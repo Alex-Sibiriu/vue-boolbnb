@@ -117,11 +117,27 @@
 
     <nav
       class="position-absolute z-2 top-0 mt-3 d-flex justify-content-between align-items-center rounded-3 px-3 start-50 translate-middle-x">
-      <img src="/img/castello-aborto.png" alt="aborto">
-      <a href=""><i class="fa-solid fa-user"></i></a>
+
+      
+      <img src="/img/logo2.png" alt="logo sito">
+
+      
+      <div class="dropdown">
+        <a class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-user"></i>
+        </a>
+
+        <ul class="dropdown-menu border-0 mt-2 ">
+          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/">Accedi</a></li>
+          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/register">Registrati</a></li>
+         
+        </ul>
+      </div>
+
+      
     </nav>
 
-    <div class="searchbar position-absolute p-5 rounded-3 z-3 w-50">
+    <div class="searchbar position-absolute p-5 rounded-3 z-1 w-50">
       <form class="form-inline" @submit.prevent="submitForm">
         <h2 class="fs-4">Dove vivrai la tua prossima favola?</h2>
 
@@ -149,10 +165,20 @@
   <header v-else>
     <nav class="d-flex align-items-center justify-content-between">
       <div class="logo">
-        <img src="/img/castello-aborto.png" alt="aborto">
+        
+        <router-link :to="{name: 'home'}"><img src="/img/logo2.png" alt="logo sito"></router-link>
+
       </div>
-      <div class="login">
-        <a href=""><i class="fa-solid fa-user"></i></a>
+      <div class="dropdown">
+        <a class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-user"></i>
+        </a>
+
+        <ul class="dropdown-menu border-0 mt-2 ">
+          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/">Accedi</a></li>
+          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/register">Registrati</a></li>
+         
+        </ul>
       </div>
     </nav>
   </header>
@@ -169,7 +195,7 @@ nav {
   width: 98%;
 
   img {
-    height: 80%;
+    height: 130%;
     opacity: 1; 
   }
 
@@ -177,7 +203,18 @@ nav {
     font-size: 1.5rem;
     color: #eaeaea;
   }
+
+  
+  
+  .dropdown-menu{
+    background-color: rgba(157, 6, 26, 0.699); 
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+    z-index: 99;
+    
+  }
+
 }
+
 
 /* Aggiungi stile al form */
 .searchbar {
@@ -240,7 +277,7 @@ header{
   margin-bottom: 10px;
   .logo{
     img{
-      width: 10%;
+      width: 25%;
     }
   }
 }

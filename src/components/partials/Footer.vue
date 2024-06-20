@@ -19,27 +19,27 @@ import { store } from '../../data/store'
 
 
   
-    <div class="footer">
+    <div class="footer py-3">
       <div class="container">
 
         <div class="row">
 
           <!-- logo p.iva e sedi -->
-          <div class="col-4 ">
+          <div class="col col-12 col-sm-4 d-flex flex-column align-items-center my-4 my-md-0">
             <!-- logo sito -->
             <div class="logo-footer">
-              <img src="https://i.pinimg.com/736x/56/5c/2a/565c2a824c7c184e326c751a0fb7e73e.jpg" alt="">
+              <img src="/public/img/logo2.png" alt="logo sito">
             </div>
             
             <h5>BoolBnb</h5>
-            <h6>P.I {{ this.store.footerDates[4].pIva }}</h6>
+            <h6 class="mb-2">P.I {{ this.store.footerDates[4].pIva }}</h6>
             <h6>{{ this.store.footerDates[3].pIva }}</h6>
             <h6>{{ this.store.footerDates[2].address }}</h6>
             <h6>{{ this.store.footerDates[1].phone }}</h6>
           </div>
 
           <!-- termini e faq -->
-          <div class="col-4 d-flex justify-content-center align-items-center flex-column">
+          <div class="col col-12 col-sm-4 d-flex justify-content-center align-items-center flex-column my-4 my-md-0">
             <!-- <h6 class="links-footer" v-for="(link, index) in store.footerLinks" :key="index">{{ link }}</h6> -->
             <a href="#">Termini e condizioni</a>
             <a href="#">FAQ</a>
@@ -48,10 +48,10 @@ import { store } from '../../data/store'
           </div>
 
           <!-- social -->
-          <div class="col-4 d-flex justify-content-center align-items-center flex-column">
+          <div class="col col-12 col-sm-4 d-flex justify-content-center align-items-center flex-column my-4 my-md-0">
             <div class="social-contacts ">
-              <h6 class="fst-italic">{{ this.store.footerDates[5].social }}</h6>
-              <div class="social-icons d-flex justify-content-lg-around">
+              <h6 class="fst-italic mb-4">{{ this.store.footerDates[5].social }}</h6>
+              <div class="social-icons d-flex justify-content-around">
                 <i v-for="(icon, index) in this.store.socialIcons" :key="index" :class="icon.iconClass"></i>
               </div>
             </div> 
@@ -78,13 +78,13 @@ import { store } from '../../data/store'
     .container{
       height: 100%;
 
-      .col-4{
+      .col{
         color: $light-color;
 
         .logo-footer{
           width: 100px;
           height: 100px;
-          margin-bottom: 20px;
+          
           
 
           img{
@@ -99,9 +99,11 @@ import { store } from '../../data/store'
           font-size: 0.8rem;
         }
 
-        .links-footer{
-          margin: 8px 0;
+        
+        .fst-italic{
+          font-size: 1rem;
         }
+        
        
         i{
           width: 25%;
@@ -126,16 +128,18 @@ import { store } from '../../data/store'
       
   }
 
-  // Media Queries
+  // // Media Queries
 
-  // ----- TABLET -----
-  // da canc
-  @media (max-width: 992px){
+  // // ----- TABLET -----
+  // // da canc
+  // // @media (max-width: 992px){
 
-  }
+  // }
 
-  //  ----- SMARTPHONE --------
-  @media (max-width: 768px){
+  // //  ----- SMARTPHONE --------
+  // @media (max-width: 768px){
 
-  }
+    
+   
+  // }
 </style>
