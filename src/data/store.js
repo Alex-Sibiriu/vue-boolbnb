@@ -8,6 +8,8 @@ export const store = reactive({
 
   house:{},
 
+  addressToSearch : '',
+
   footernav: [],
 
   socialIcons: [

@@ -46,7 +46,7 @@
   }
 </script>
 <template>
-  <div class="container" v-if="!loading">
+  <div class="container my-5 p-3" v-if="loading">
     <h1 class="text-center fw-bold my-5">Services </h1>
     <div class="row">
       <div class="col">

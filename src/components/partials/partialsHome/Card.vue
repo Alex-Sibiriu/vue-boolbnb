@@ -83,7 +83,7 @@ import Loader from '../../partials/Loader.vue';
     
 <template>
 
-  <div v-if="!loading">
+  <div v-if="!loading" class="p-5">
 
     
     <swiper
@@ -91,6 +91,7 @@ import Loader from '../../partials/Loader.vue';
     :centeredSlides="true"
     :spaceBetween="30"
     :grabCursor="true"
+    :initialSlide="2"
     :pagination="{
       clickable: true,
     }"
@@ -125,9 +126,6 @@ import Loader from '../../partials/Loader.vue';
 <style lang="scss" scoped>
 @import '../../../assets/scss/partials/variables.scss';
 
-h2{
-  color: rgb(6, 45, 77);
-}
 
 .castle{
   padding: 0;

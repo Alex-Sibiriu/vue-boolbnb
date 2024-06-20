@@ -6,7 +6,7 @@ import {store} from '../data/store';
   }
 </script>
 <template>
-  lista castelli 
+  lista castelli in base alla ricerca 
 </template>
 
 

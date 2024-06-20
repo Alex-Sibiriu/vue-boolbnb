@@ -18,9 +18,8 @@ import Services from '../components/partials/partialsHome/Services.vue';
 <template>
 
 
-  <div class="container my-3">
-
-    <Loader />
+  <div class="container-fluid my-3">
+    
     <Card />
     <Services />
 
