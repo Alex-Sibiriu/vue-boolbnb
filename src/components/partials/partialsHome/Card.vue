@@ -83,7 +83,7 @@ import Loader from '../../partials/Loader.vue';
     
 <template>
 
-  <div v-if="!loading" class="p-5">
+  <div v-if="!loading" class="">
 
     
     <swiper
@@ -98,7 +98,7 @@ import Loader from '../../partials/Loader.vue';
     :modules="modules"
     class="mySwiper"
   >
-    <swiper-slide v-for="house in housesFiltered" :key="house.id">
+    <swiper-slide class="p-3" v-for="house in housesFiltered" :key="house.id">
 
       <div class="castle">
 
@@ -129,8 +129,9 @@ import Loader from '../../partials/Loader.vue';
 
 .castle{
   padding: 0;
-
-
+  overflow: hidden;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
   
   .bg-castle{
     position: relative;

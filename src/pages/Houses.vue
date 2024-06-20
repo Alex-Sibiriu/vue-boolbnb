@@ -4,6 +4,8 @@ import {store} from '../data/store.js';
 import Castles from '../components/partials/partialsCastles/Castles.vue';
 import  Offcanvas  from '../components/partials/partialsCastles/OffCanvas.vue';
 import Loader from '../components/partials/Loader.vue';
+import Navbar from '../components/partials/partialsHome/Navbar.vue';
+
 
   export default {
     name: 'Houses',
@@ -11,7 +13,8 @@ import Loader from '../components/partials/Loader.vue';
     components:{
       Castles,
       Offcanvas,
-      Loader
+      Loader,
+      Navbar,
     },
 
     data(){
@@ -60,14 +63,14 @@ import Loader from '../components/partials/Loader.vue';
   }
 </script>
 <template>
-
   <div class="container">
-
+    
     <div class="row my-5">
-
+      
       <div class="col col-10">
-
         <h2>Risultati di ricerca:</h2>
+        
+        <Navbar />
       </div>
 
       <div class="col col-2 d-flex align-items-center justify-content-end">
