@@ -36,7 +36,7 @@
   <div class="row">
     <div class="col">
       <div class="card">
-        stampare qui
+        <!-- stampare qui i castelli -->
       </div>
     </div>
   </div>
