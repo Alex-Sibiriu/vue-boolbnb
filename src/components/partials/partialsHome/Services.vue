@@ -2,9 +2,15 @@
   import { store } from '@/data/store';
   import axios from 'axios';
   import Loader from '../Loader.vue';
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import { EffectCoverflow, Pagination } from 'swiper/modules';
+
   export default {
     components:{
-      Loader
+      Loader,
+      Swiper,
+      SwiperSlide,
+
     },
     data(){
       return{
@@ -13,6 +19,13 @@
         loading : true,
       }
     },
+    setup() {
+      return {
+        modules: [EffectCoverflow, Pagination],
+      };
+    },
+    
+
     methods:{
       getApi(){
         axios.get(store.apiUrl + 'services')
@@ -32,7 +45,8 @@
             service.name === 'Spettacoli Teatrali' ||
             service.name === 'Rievocazioni Storiche' ||
             service.name === 'Concerti' ||
-            service.name === 'Maneggio' 
+            service.name === 'Maneggio' || 
+            service.name === 'Golf'  
         });
         console.log(this.favServices)
         return this.favServices
@@ -46,51 +60,91 @@
   }
 </script>
 <template>
-  <div class="container my-5 p-3" v-if="loading">
-    <h1 class="text-center fw-bold my-5">Services </h1>
-    <div class="row">
-      <div class="col">
-        <ul class="columns">
-          <li v-for="service in favServices" :key="service.id"><i class="icon me-5" :class="service.icon"></i> {{ service.name }}</li>
-        </ul>
+  <div class="container-fluid my-5 p-5" v-if="loading">
+
+    <swiper
+    :effect="'coverflow'"
+    :grabCursor="true"
+    :centeredSlides="true"
+    :slidesPerView="'auto'"
+    :coverflowEffect="{
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    }"
+    :pagination="true"
+    :initialSlide="3"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <swiper-slide v-for="service in favServices" :key="service.id" class="position-relative">
+
+      <div class="text p-2">
+        <h5 class="title"><i :class="service.icon" class="me-2"></i>{{service.name}}</h5>
+        <p class="description">{{ service.description }}</p>
       </div>
-    </div>
+
+      <img :src="`/img/${service.img}`" />
+    </swiper-slide>
+  </swiper>
+
   </div>
   <Loader v-else />
 </template>
 
 
+
 <style lang="scss" scoped>
 @use '../../../assets/scss/main.scss' as * ;
-.container{
-  box-shadow: 5px 5px 12px 0px $shadow-color;
-  h1{
-    color: $brand-color;
-  }
-  .row{
-    .col{
-      .columns{
-        list-style: none;
-        columns: 2;
-          li{
-            margin-bottom: 30px;
-            font-size: 1.3rem;
-            font-weight: bolder;
-            
-            .icon{
-              font-size: 2rem ;
-            }
-        }
-      }
-    }
-  }
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
 }
 
-@media screen and (max-width:768px){
-  .columns{
-    columns: 1 !important;
-    margin-left: 20%;
-  }
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
+
+
+.swiper-slide .text{
+  position: absolute;
+  bottom: 0px;
+  left: 0px ;
+  color: $light-color;
+  background-color: rgba(5, 28, 44, 0.699);
+
+
 }
 
 </style>
