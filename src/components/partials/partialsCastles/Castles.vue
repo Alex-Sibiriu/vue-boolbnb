@@ -12,8 +12,8 @@ import {store} from '../../../data/store.js';
 </script>
 <template>
 
-  <div class="row row-cols-4 pb-5">
-    <div class="col mb-5" v-for="castle in store.houses" :key="castle">
+  <div class="row  pb-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center">
+    <div class="col mb-5 px-4 justify-content-center d-flex" v-for="castle in store.houses" :key="castle">
 
       <div class="castle h-100 rounded-2" >
         <img src="https://siviaggia.it/wp-content/uploads/sites/2/2021/09/Castello-di-Neuschwanstein.jpg" alt="">
@@ -31,7 +31,7 @@ import {store} from '../../../data/store.js';
 @import '../../../assets/scss/partials/variables.scss';
 
 .castle{
-  width: 300px;
+
   overflow: hidden;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
   img{

@@ -87,7 +87,7 @@ import Loader from '../../partials/Loader.vue';
 
     
     <swiper
-    :slidesPerView="3"
+    :slidesPerView="1"
     :centeredSlides="true"
     :spaceBetween="30"
     :grabCursor="true"
@@ -97,6 +97,14 @@ import Loader from '../../partials/Loader.vue';
     }"
     :modules="modules"
     class="mySwiper"
+    :breakpoints="{
+    680: {
+      slidesPerView: 2
+    },
+    950: {
+      slidesPerView: 3
+    }
+  }"
   >
     <swiper-slide class="p-3" v-for="house in housesFiltered" :key="house.id">
 
@@ -176,6 +184,10 @@ import Loader from '../../partials/Loader.vue';
 }
 
 
-
+@media screen and (max-width: 768px) {
+  .mySwiper{
+    slidesPerView: 2;
+  }
+}
 
 </style>
