@@ -37,7 +37,7 @@
     methods: {
       getSuggestions: _.debounce(function() {
       if (store.inputAddress.length > 1) {
-        axios.get(`https://api.tomtom.com/search/2/search/${encodeURIComponent(store.inputAddress)}.json`, {
+        axios.get(`https://api.tomtom.com/search/2/search/${store.inputAddress}.json`, {
             params: {
               key: 'sOhLhoDd5uQFkArKiM1liP4BtoqFAxAk',
               typeahead: true,

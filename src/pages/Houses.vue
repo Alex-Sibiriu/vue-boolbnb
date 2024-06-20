@@ -3,6 +3,7 @@ import axios from 'axios';
 import {store} from '../data/store.js';
 import Castles from '../components/partials/partialsCastles/Castles.vue';
 import  Offcanvas  from '../components/partials/partialsCastles/OffCanvas.vue';
+import Loader from '../components/partials/Loader.vue';
 
   export default {
     name: 'Houses',
@@ -10,23 +11,51 @@ import  Offcanvas  from '../components/partials/partialsCastles/OffCanvas.vue';
     components:{
       Castles,
       Offcanvas,
-    
+      Loader
     },
 
     data(){
       return{
         store,
+        loading: true
       }
     },
 
     methods:{
       getApi(){
-       
+        this.loading = true
+        axios.get(store.apiUrl + 'houses')
+        .then(result =>{
+          store.houses = result.data.data;
+          console.log(store.houses);
+          this.loading = false
+        })
+        .catch(error =>{
+          console.log(error);
+          this.loading = false
+        })
+      },
+
+      getFilteredCastles() {
+        this.loading = true
+        if (store.inputAddress != '') {
+          axios.get(store.apiUrl + 'houses/search/' + store.inputAddress + '/300')
+            .then(response => {
+              store.houses = response.data;
+              this.loading = false
+            })
+            .catch(error => {
+              console.error('Errore nella ricerca dei castelli vicini: ', error);
+              this.loading = false
+            })
+        } else {
+          this.getApi();
+        }
       }
     },
 
-    mounted(){
-      this.getApi();
+    mounted() {
+      this.getFilteredCastles();
     }
   }
 </script>
@@ -52,8 +81,8 @@ import  Offcanvas  from '../components/partials/partialsCastles/OffCanvas.vue';
 
     <Offcanvas />
   
-
-    <Castles />
+    <Loader v-if="loading" />
+    <Castles v-else/>
     
 
   </div>
