@@ -37,7 +37,7 @@ import Loader from '../../partials/Loader.vue';
 
     setup() {
       return {
-        // modules: [Pagination],
+     
       };
     },
 
