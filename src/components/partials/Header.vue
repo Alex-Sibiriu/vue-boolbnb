@@ -76,13 +76,26 @@
       const input = this.$el.querySelector('input');
       const suggestionsBox = this.$el.querySelector('.suggestions');
       const jumboSwiper = this.$el.querySelector('#jumbo-swiper');
-      if (
-        jumboSwiper.contains(event.target) ||
-        !this.$el.contains(event.target) &&
-        !input.contains(event.target) &&
-        !suggestionsBox.contains(event.target)
-      ) {
-        this.suggestions = [];
+
+      if (jumboSwiper) {
+        if (
+          jumboSwiper.contains(event.target) ||
+          !this.$el.contains(event.target) &&
+          !input.contains(event.target) &&
+          !suggestionsBox.contains(event.target)
+        ) {
+          this.suggestions = [];
+        }
+      } else if(input){
+        if (
+          !this.$el.contains(event.target) &&
+          !input.contains(event.target) &&
+          !suggestionsBox.contains(event.target)
+        ) {
+          this.suggestions = [];
+        }
+      } else {
+        return
       }
     },
     },
