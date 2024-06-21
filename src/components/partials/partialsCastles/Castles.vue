@@ -39,6 +39,7 @@ import {store} from '../../../data/store.js';
 }
 .castle{
   background-color: $dark-color;
+  color: $light-color;
   overflow: hidden;
   img{
     width: 100%;
