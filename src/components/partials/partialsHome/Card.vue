@@ -150,7 +150,6 @@ import Loader from '../../partials/Loader.vue';
 .castle{
   padding: 0;
   overflow: hidden;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   
   .bg-castle{

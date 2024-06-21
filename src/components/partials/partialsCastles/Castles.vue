@@ -34,13 +34,12 @@ import {store} from '../../../data/store.js';
 @import '../../../assets/scss/partials/variables.scss';
 
 .row:last-child{
-  // per allineare l'ultima card , mi stava uccidendo vederla centrale
+  // per allineare l'ultima card
   justify-content: start !important;
 }
 .castle{
-
+  background-color: $dark-color;
   overflow: hidden;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
   img{
     width: 100%;
     object-fit: cover;
