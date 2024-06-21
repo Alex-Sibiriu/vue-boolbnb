@@ -55,7 +55,8 @@ import {store} from '../../../data/store.js';
         }
 
         if (valid) {
-          this.$emit('searchCastles')
+          this.$emit('searchCastles');
+          store.serviceName = '';
         }
       },
 

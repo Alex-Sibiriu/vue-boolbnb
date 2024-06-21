@@ -77,6 +77,8 @@
 
     getFilteredCastles() {
         this.loading = true
+        store.serviceName = '';
+        
         axios.get(store.apiUrl + 'houses/search', {
           params: {
             address: encodeURIComponent(store.inputAddress),

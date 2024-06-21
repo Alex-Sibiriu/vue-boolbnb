@@ -12,6 +12,7 @@ import {store} from '../../../data/store.js';
 </script>
 <template>
 
+  <h2 v-if="store.serviceName != '' ">Castelli con {{ store.serviceName }}</h2>
   <div class="row  pb-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center">
     <div class="col mb-5 px-4 justify-content-center d-flex" v-for="castle in store.houses" :key="castle.id">
 
@@ -38,6 +39,12 @@ import {store} from '../../../data/store.js';
 
 <style lang="scss" scoped>
 @import '../../../assets/scss/partials/variables.scss';
+
+h2 {
+  color: $brand-color;
+  font-weight: bold;
+  padding: 0 20px 20px;
+}
 
 .row:last-child{
   // per allineare l'ultima card

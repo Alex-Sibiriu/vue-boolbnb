@@ -10,7 +10,6 @@
       Loader,
       Swiper,
       SwiperSlide,
-
     },
     data(){
       return{
@@ -24,7 +23,6 @@
         modules: [EffectCoverflow, Pagination],
       };
     },
-    
 
     methods:{
       getApi(){
@@ -50,12 +48,24 @@
         });
         console.log(this.favServices)
         return this.favServices
-      }
+      },
+
+      toggleService(service) {
+        const index = store.searchServices.indexOf(service.id);
+        store.serviceName = service.name;
+        store.searchServices = [];
+
+        if (index > -1) {
+          store.searchServices.splice(index, 1);
+        } else {
+          store.searchServices.push(service.id);
+        }
+        console.log(store.searchServices);
+      },
+      
     },
     mounted(){
       this.getApi();
-
-      
     }
   }
 </script>
@@ -85,10 +95,10 @@
     <swiper-slide v-for="service in favServices" :key="service.id" class="position-relative">
 
       <div class="text p-2">
-        <router-link :to="{name: 'houseService', params:{slug: service.slug}}" class="text-light">
-        <h5 class="title"><i :class="service.icon" class="me-2"></i>{{service.name}}</h5>
+        <router-link @click="toggleService(service)" :to="{name: 'houses'}" class="text-light">
+          <h5 class="title"><i :class="service.icon" class="me-2"></i>{{service.name}}</h5>
+          <p class="description">{{ service.description }}</p>
         </router-link>
-        <p class="description">{{ service.description }}</p>
       </div>
 
       <img :src="`/img/${service.img}`" />
@@ -128,8 +138,8 @@ body {
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
 }
 
@@ -144,6 +154,7 @@ body {
 
 .swiper-slide .text{
   position: absolute;
+  width: 100%;
   bottom: 0px;
   left: 0px ;
   color: $light-color;

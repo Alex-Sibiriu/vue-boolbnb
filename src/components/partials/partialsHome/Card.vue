@@ -30,26 +30,19 @@ import Loader from '../../partials/Loader.vue';
         store,
         loading: true,
         housesFiltered: [],
- 
-
+        houses: []
       }
-    },
-
-    setup() {
-      return {
-     
-      };
     },
 
     methods:{
      
-      getApi(apiUrl){
+      getApi(){
         
         this.loading = true;
         axios.get(store.apiUrl + 'houses')
         .then(result =>{
           this.loading = false;
-          store.houses = result.data.data;
+          this.houses = result.data.data;
           console.log(result.data);
 
           this.getSponsored();
@@ -59,25 +52,18 @@ import Loader from '../../partials/Loader.vue';
           this.loading = false;
           console.log(error);
         })
-
       },
 
       // funzione per estrapolare solo i castelli con lo sponsor
       getSponsored(){
-        this.housesFiltered = store.houses.filter(house=> house.sponsors.length > 0)
+        this.housesFiltered = this.houses.filter(house=> house.sponsors.length > 0)
         console.log(this.housesFiltered);
-
       },
-      
     },
 
     mounted(){
-      this.getApi(store.apiUrl, 'houses');
-      
+      this.getApi();
     },
-
-    
-     
   }
 </script>
     
