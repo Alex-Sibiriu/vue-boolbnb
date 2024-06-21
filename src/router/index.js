@@ -3,7 +3,6 @@ import Home from '../pages/Home.vue';
 import Error404 from '../pages/Error404.vue';
 import HouseDetails from '../pages/HouseDetails.vue';
 import Houses from '../pages/Houses.vue';
-import ServiceHouse from '@/pages/Service-House.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,16 +23,10 @@ const router = createRouter({
       component: HouseDetails,
     },
     {
-      path: '/house-service/:slug',
-      name: 'houseService',
-      component: ServiceHouse,
-    },
-    {
       path: '/:pathMatch(.*)*',
       name: 'error404',
       component: Error404,
     }
-    
   ]
 })
 
