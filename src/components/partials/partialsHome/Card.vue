@@ -83,6 +83,8 @@ import Loader from '../../partials/Loader.vue';
     
 <template>
 
+  <h3 class="text-center my-3">Castelli sponsorizzati</h3>
+
   <div v-if="!loading" class="">
 
     
@@ -110,9 +112,16 @@ import Loader from '../../partials/Loader.vue';
 
       <router-link :to="{name: 'houseDetails', params:{slug: house.slug}}" class="d-inline-block">
 
-        <div class="castle">
+        <div class="castle ">
   
           <div class="bg-castle">
+
+            <div class="diagonal badge color">
+              <i class="fa-solid fa-star"></i>
+              sponsorizzato
+              <i class="fa-solid fa-star"></i>
+              
+            </div>
   
             <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
   
@@ -163,6 +172,27 @@ import Loader from '../../partials/Loader.vue';
       text-decoration: none;
       color: rgb(6, 45, 77);
     }
+
+    .badge {
+	
+		&.color{
+			background: $brand-color;	
+		}
+		
+		&.diagonal{
+		white-space:nowrap;
+		position: absolute;
+		padding: 5px 100px;
+		min-width: 300px;
+		transform: rotate(-45deg) translate(-37%, 0);
+		color: white;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 12px;
+		top: -20px;
+		box-sizing: border-box;
+		}
+	}
 
   }
 

@@ -60,6 +60,9 @@
   }
 </script>
 <template>
+
+  <h3 class="text-center my-3">Servizi esclusivi</h3>
+
   <div class="container-fluid my-5 p-5" v-if="loading">
 
     <swiper
