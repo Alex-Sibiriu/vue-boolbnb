@@ -13,7 +13,7 @@ import {store} from '../../../data/store.js';
 <template>
 
   <div class="row  pb-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center">
-    <div class="col mb-5 px-4 justify-content-center d-flex" v-for="castle in store.houses" :key="castle">
+    <div class="col mb-5 px-4 justify-content-center d-flex" v-for="castle in store.houses" :key="castle.id">
 
       <router-link :to="{name: 'houseDetails', params:{slug: castle.slug}}" >
 
@@ -33,6 +33,10 @@ import {store} from '../../../data/store.js';
 <style lang="scss" scoped>
 @import '../../../assets/scss/partials/variables.scss';
 
+.row:last-child{
+  // per allineare l'ultima card , mi stava uccidendo vederla centrale
+  justify-content: start !important;
+}
 .castle{
 
   overflow: hidden;

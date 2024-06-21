@@ -25,10 +25,6 @@ import Services from '../components/partials/partialsHome/Services.vue';
     <Card />
     <Services />
 
-    
-    
-
-
   </div>
 
 
