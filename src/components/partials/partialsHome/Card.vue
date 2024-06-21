@@ -216,10 +216,5 @@ import Loader from '../../partials/Loader.vue';
 }
 
 
-@media screen and (max-width: 768px) {
-  .mySwiper{
-    slidesPerView: 2;
-  }
-}
 
 </style>

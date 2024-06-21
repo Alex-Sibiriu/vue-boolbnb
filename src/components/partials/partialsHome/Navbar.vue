@@ -164,6 +164,7 @@
   }
   .suggestions {
     cursor: pointer;
+    z-index: 999;
   }
 }
 
