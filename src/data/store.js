@@ -9,7 +9,13 @@ export const store = reactive({
   house:{},
 
   inputAddress: '',
-  addressToSearch : '',
+  searchRange: 100,
+  searchBath: 1,
+  searchRooms: 1,
+  searchBeds: 1,
+  searchServices: [],
+
+  serviceName: '',
 
   footernav: [],
 

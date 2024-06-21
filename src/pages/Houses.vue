@@ -41,19 +41,24 @@ import Navbar from '../components/partials/partialsHome/Navbar.vue';
 
       getFilteredCastles() {
         this.loading = true
-        if (store.inputAddress != '') {
-          axios.get(store.apiUrl + 'houses/search/' + store.inputAddress + '/300')
-            .then(response => {
-              store.houses = response.data;
-              this.loading = false
-            })
-            .catch(error => {
-              console.error('Errore nella ricerca dei castelli vicini: ', error);
-              this.loading = false
-            })
-        } else {
-          this.getApi();
-        }
+        axios.get(store.apiUrl + 'houses/search', {
+          params: {
+            address: store.inputAddress,
+            range: store.searchRange,
+            rooms: store.searchRooms,
+            beds: store.searchBeds,
+            bathrooms: store.searchBath,
+            services: store.searchServices
+          }
+        })
+        .then(response => {
+          store.houses = response.data;
+          this.loading = false
+        })
+        .catch(error => {
+          console.error('Errore nella ricerca dei castelli ', error);
+          this.loading = false
+        })
       }
     },
 
@@ -82,7 +87,9 @@ import Navbar from '../components/partials/partialsHome/Navbar.vue';
     </div>
   
 
-    <Offcanvas />
+    <Offcanvas 
+      @searchCastles="getFilteredCastles()"
+    />
   
     <Loader v-if="loading" />
     <Castles v-else/>
