@@ -43,7 +43,7 @@ import Navbar from '../components/partials/partialsHome/Navbar.vue';
         this.loading = true
         axios.get(store.apiUrl + 'houses/search', {
           params: {
-            address: store.inputAddress,
+            address: encodeURIComponent(store.inputAddress),
             range: store.searchRange,
             rooms: store.searchRooms,
             beds: store.searchBeds,
@@ -93,7 +93,8 @@ import Navbar from '../components/partials/partialsHome/Navbar.vue';
   
     <Loader v-if="loading" />
     <Castles v-else/>
-    
+
+    <h3 v-if="!loading && store.houses.length === 0">Nessun castello trovato</h3>
 
   </div>
 
@@ -103,6 +104,10 @@ import Navbar from '../components/partials/partialsHome/Navbar.vue';
 <style lang="scss" scoped>
 .container{
   min-height: calc(100vh - 300px);
+}
+
+h3 {
+  color: #9D061B;
 }
 
 </style>

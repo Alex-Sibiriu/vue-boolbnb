@@ -60,13 +60,17 @@ import {store} from '../../../data/store.js';
       },
 
       toggleService(serviceId) {
-      const index = store.searchServices.indexOf(serviceId);
-      if (index > -1) {
-        store.searchServices.splice(index, 1);
-      } else {
-        store.searchServices.push(serviceId);
+        const index = store.searchServices.indexOf(serviceId);
+        if (index > -1) {
+          store.searchServices.splice(index, 1);
+        } else {
+          store.searchServices.push(serviceId);
+        }
+      },
+
+      isServiceChecked(serviceId) {
+        return this.store.searchServices.includes(serviceId);
       }
-    }
     },
 
     mounted(){
@@ -153,13 +157,18 @@ import {store} from '../../../data/store.js';
 
             <div class="btn-group m-2" role="group" aria-label="Basic checkbox toggle button group"
               v-for="service in store.services" :key="service.id">
-              <input type="checkbox" class="btn-check" :id="service.id" autocomplete="off">
-              <label class="btn btn-outline-primary" :for="service.id" @click="toggleService(service.id)">{{ service.name }}</label>
+             <input
+                type="checkbox"
+                class="btn-check"
+                :id="service.id"
+                :checked="isServiceChecked(service.id)"
+                @change="toggleService(service.id)">
+              <label class="btn btn-outline-primary" :for="service.id">{{ service.name }}</label>
             </div>
           </div>
 
           <div class="ps-2 pt-5">
-            <span class="btn btn-success" @click="validateSearch">Inizia Ricerca</span>
+            <span class="btn btn-success" data-bs-dismiss="offcanvas" @click="validateSearch">Inizia Ricerca</span>
           </div>
 
         </form>
