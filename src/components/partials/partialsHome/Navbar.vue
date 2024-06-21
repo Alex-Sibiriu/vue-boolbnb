@@ -77,19 +77,24 @@
 
     getFilteredCastles() {
         this.loading = true
-        if (store.inputAddress != '') {
-          axios.get(store.apiUrl + 'houses/search/' + store.inputAddress + '/300')
-            .then(response => {
-              store.houses = response.data;
-              this.loading = false
-            })
-            .catch(error => {
-              console.error('Errore nella ricerca dei castelli vicini: ', error);
-              this.loading = false
-            })
-        } else {
-          this.getApi();
-        }
+        axios.get(store.apiUrl + 'houses/search', {
+          params: {
+            address: encodeURIComponent(store.inputAddress),
+            range: store.searchRange,
+            rooms: store.searchRooms,
+            beds: store.searchBeds,
+            bathrooms: store.searchBath,
+            services: store.searchServices
+          }
+        })
+        .then(response => {
+          store.houses = response.data;
+          this.loading = false
+        })
+        .catch(error => {
+          console.error('Errore nella ricerca dei castelli ', error);
+          this.loading = false
+        })
       }
     },
 
@@ -144,10 +149,7 @@
 
 /* Aggiungi stile al form */
 .searchbar {
-
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
-
-  
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   h2{
     color: #eaeaea;
     margin-bottom: 30px;
@@ -160,7 +162,6 @@
     width: 100%;
     height: 100%;
   }
-
   .suggestions {
     cursor: pointer;
   }
