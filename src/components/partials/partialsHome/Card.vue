@@ -42,7 +42,7 @@ import Loader from '../../partials/Loader.vue';
         axios.get(store.apiUrl + 'houses')
         .then(result =>{
           this.loading = false;
-          this.houses = result.data.data;
+          this.houses = result.data;
           console.log(result.data);
 
           this.getSponsored();
@@ -79,7 +79,7 @@ import Loader from '../../partials/Loader.vue';
     :centeredSlides="true"
     :spaceBetween="30"
     :grabCursor="true"
-    :initialSlide="2"
+    :initialSlide="1"
     :pagination="{
       clickable: true,
     }"

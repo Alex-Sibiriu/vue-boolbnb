@@ -2,6 +2,8 @@
   import axios from 'axios';
   import {store} from '../data/store';
   import Loader from '../components/partials/Loader.vue';
+  import Map from '../components/partials/Map.vue';
+  import '@tomtom-international/web-sdk-maps/dist/maps.css';
 
   import { ref } from 'vue';
   // Import Swiper Vue.js components
@@ -14,8 +16,6 @@
   import 'swiper/css/navigation';
   import 'swiper/css/thumbs';
 
-
-
   // import required modules
   import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
@@ -25,6 +25,7 @@
       Loader,
       Swiper,
       SwiperSlide,
+      Map
     },
     data(){
       return{
@@ -36,7 +37,13 @@
         messageEmail: '',
         messageText: '',
 
-        resultMessage: ''
+        resultMessage: '',
+
+        apiKey: 'sOhLhoDd5uQFkArKiM1liP4BtoqFAxAk',
+        longitude: null,
+        latitude: null,
+
+        allCastles: [],
       }
     },
 
@@ -55,17 +62,34 @@
     },
 
     methods:{
-      getApi(){
+      getAllCastles(){
+        this.loading = true;
+        axios.get(store.apiUrl + 'houses')
+        .then(result =>{
+          this.allCastles = result.data;
+          this.loading = false;
+          console.log(this.allCastles);
+        })
+        .catch(error =>{
+          this.loading = false;
+          console.log(error);
+        })
+      },
+
+      getApi() {
         this.loading = true;
         const slug = this.$route.params.slug;
 
         axios.get(store.apiUrl + 'house-detail/' + slug)
         .then(result =>{
-          this.loading = false;
+          this.loading = true;
           this.house = result.data;
-          console.log(result.data);
+          this.longitude = parseFloat(result.data.longitude);
+          this.latitude = parseFloat(result.data.latitude) ;
+
+          this.getAllCastles();
         })
-        .catch(errors =>{
+        .catch(errors => {
           this.loading = false;
           console.log(errors.message);
         })
@@ -86,11 +110,11 @@
             this.resultMessage = '';
           }, 5000);
         })
-      }
-      
+      },
     },
 
     mounted(){
+      // this.getAllCastles();
       this.getApi();
     }
   
@@ -164,7 +188,7 @@
         </div>
   
         <div class="my-3 border-bottom border-secondary-subtle">
-          <p>
+          <p v-if="house.user.name">
             <strong>Proprietario:</strong>
             {{ house.user.name }} {{ house.user.surname }}
           </p>
@@ -190,9 +214,9 @@
             </li>
           </ul>
         </div>
-  
-      </div>
 
+      </div>
+      
       <div class="col-12 col-lg-5 position-relative">
         <div class="rounded-5 pt-3 position-sticky top-0">
           <form action="" @submit.prevent="sendMessage" class=" rounded-5 p-4">
@@ -221,19 +245,37 @@
 
         </div>
       </div>
+
+      <div class="col-12 pt-5">
+        <h4>Dove Sarai</h4>
+        <Map :apiKey="apiKey" :lat="latitude" :long="longitude" :houses="allCastles"></Map>
+      </div>
     </div>
 
   </div>
 
-  <Loader v-else />
+  <div class="loader" v-else>
+    <Loader />
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../assets/scss/main.scss' as * ;
 
+#map {
+  width: 100%;
+  height: 500px;
+}
+
+.loader {
+  height: calc(100vh - 300px);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
 
 .container{
-  min-height: calc(100vh - 300px);
+  min-height: calc(100vh - 350px);
   position: relative;
 
   form {
