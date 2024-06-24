@@ -26,9 +26,9 @@ import Services from '../components/partials/partialsHome/Services.vue';
 
     <div class="banner d-flex justify-content-center align-items-center">
 
-      <div class=" container row row-cols-1 row-cols-lg-2">
+      <div class=" container row row-cols-1 row-cols-lg-2 align-items-center">
 
-        <div class="col-12 col-lg-7 mb-5">
+        <div class="col-12 col-lg-7 ">
 
           <p class="m-0">
             <span>
@@ -49,7 +49,7 @@ import Services from '../components/partials/partialsHome/Services.vue';
         </div>
         <div class="col-12 col-lg-5">
   
-          <img src="https://www.millionaire.it/wp-content/uploads/2021/10/10-Things-We-Can-Learn-From-the-Incredible-Steve-Jobs.jpg" alt="" >
+          <img src="/img/favicon.png" alt="logo" class="w-75" >
         </div>
         
       </div>

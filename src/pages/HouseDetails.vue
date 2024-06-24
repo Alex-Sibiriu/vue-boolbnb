@@ -123,6 +123,7 @@
     
 <template>
   <div class="container" v-if="loading == false">
+    <h1 class="my-5">{{ house.title }}</h1>
     <div>
 
       <swiper :style="{
@@ -155,10 +156,10 @@
             src="https://swiperjs.com/demos/images/nature-10.jpg" /></swiper-slide>
       </swiper>
 
-      <h2 class="text-center">{{ house.title }}</h2>
+      
     </div>
 
-    <div class="row pb-5">
+    <div class="row pb-5 mt-5">
       <div class="col-12 col-lg-7">
         <p class="fs-5 fw-medium pt-3">
           <strong>Indirizzo:</strong>
@@ -278,6 +279,12 @@
   min-height: calc(100vh - 350px);
   position: relative;
 
+  h1{
+    color: $brand-color;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
   form {
     color: white;
     background-color: $dark-color;
@@ -286,17 +293,17 @@
     font-weight: bold;
   }
 
-  h2{
-    position: absolute;
-    top: 520px;
-    left: 0;
-    z-index: 100;
-    padding: 10px 20px;
-    text-shadow: 5px 5px 5px $dark-color;
-    font-weight: bold;
-    font-size: 3rem;
-    color: $light-color;
-  }
+  // h2{
+  //   position: absolute;
+  //   top: 520px;
+  //   left: 0;
+  //   z-index: 100;
+  //   padding: 10px 20px;
+  //   text-shadow: 5px 5px 5px $dark-color;
+  //   font-weight: bold;
+  //   font-size: 3rem;
+  //   color: $light-color;
+  // }
 
   ul {
     columns: 2;
