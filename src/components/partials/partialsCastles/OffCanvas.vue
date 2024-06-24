@@ -33,7 +33,7 @@ import {store} from '../../../data/store.js';
       },
 
       validateSearch() {
-        const valid = true;
+        let valid = true;
 
         this.errorRooms = '';
         this.errorBath = '';
