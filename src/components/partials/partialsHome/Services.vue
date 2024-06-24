@@ -70,63 +70,54 @@
   }
 </script>
 <template>
+  <div class="my-5 pt-5">
 
-  <h3 class="text-center my-3">Servizi esclusivi</h3>
+    <h3 class="text-center my-3">Servizi esclusivi</h3>
 
-  <div class="container-fluid my-5 p-5" v-if="loading">
+    <div class="container-fluid my-3 p-5" v-if="loading">
 
-    <swiper
-    :effect="'coverflow'"
-    :grabCursor="true"
-    :centeredSlides="true"
-    :slidesPerView="'auto'"
-    :coverflowEffect="{
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    }"
-    :pagination="true"
-    :initialSlide="3"
-    :modules="modules"
-    class="mySwiper"
-  >
-    <swiper-slide v-for="service in favServices" :key="service.id" class="position-relative">
+      <swiper
+      :effect="'coverflow'"
+      :grabCursor="true"
+      :centeredSlides="true"
+      :slidesPerView="'auto'"
+      :coverflowEffect="{
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      }"
+      :pagination="true"
+      :initialSlide="3"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide v-for="service in favServices" :key="service.id" class="position-relative">
 
-      <div class="text p-2">
-        <router-link @click="toggleService(service)" :to="{name: 'houses'}" class="text-light">
-          <h5 class="title"><i :class="service.icon" class="me-2"></i>{{service.name}}</h5>
-          <p class="description">{{ service.description }}</p>
-        </router-link>
-      </div>
+        <div class="text p-2">
+          <router-link @click="toggleService(service)" :to="{name: 'houses'}" class="text-light">
+            <h5 class="title"><i :class="service.icon" class="me-2"></i>{{service.name}}</h5>
+            <p class="description">{{ service.description }}</p>
+          </router-link>
+        </div>
 
-      <img :src="`/img/${service.img}`" />
-    </swiper-slide>
-  </swiper>
+        <img :src="`/img/${service.img}`" />
+      </swiper-slide>
+    </swiper>
 
+    </div>
+    <Loader v-else />
   </div>
-  <Loader v-else />
 </template>
 
 
 
 <style lang="scss" scoped>
 @use '../../../assets/scss/main.scss' as * ;
-#app { height: 100% }
-html,
-body {
-  position: relative;
-  height: 100%;
-}
 
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
+h3{
+  color: $dark-color;
 }
 
 .swiper {

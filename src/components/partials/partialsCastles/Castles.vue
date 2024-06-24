@@ -13,7 +13,7 @@ import {store} from '../../../data/store.js';
 <template>
 
   <h2 v-if="store.serviceName != '' ">Castelli con {{ store.serviceName }}</h2>
-  <div class="row  pb-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center">
+  <div class="row  pb-5 row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
     <div class="col mb-5 px-4 justify-content-center d-flex" v-for="castle in store.houses" :key="castle.id">
 
       <router-link :to="{name: 'houseDetails', params:{slug: castle.slug}}">
