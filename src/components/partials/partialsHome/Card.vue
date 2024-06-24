@@ -68,63 +68,65 @@ import Loader from '../../partials/Loader.vue';
 </script>
     
 <template>
+  <div class="my-5 pt-5">
 
-  <h3 class="text-center my-3">Castelli sponsorizzati</h3>
+    <h3 class="text-center my-5">Castelli in primo piano</h3>
 
-  <div v-if="!loading" class="">
+    <div v-if="!loading" class="">
 
-    
-    <swiper
-    :slidesPerView="1"
-    :centeredSlides="true"
-    :spaceBetween="30"
-    :grabCursor="true"
-    :initialSlide="1"
-    :pagination="{
-      clickable: true,
+      
+      <swiper
+      :slidesPerView="1"
+      :centeredSlides="true"
+      :spaceBetween="30"
+      :grabCursor="true"
+      :initialSlide="1"
+      :pagination="{
+        clickable: true,
+      }"
+      :modules="modules"
+      class="mySwiper"
+      :breakpoints="{
+      680: {
+        slidesPerView: 2
+      },
+      950: {
+        slidesPerView: 3
+      }
     }"
-    :modules="modules"
-    class="mySwiper"
-    :breakpoints="{
-    680: {
-      slidesPerView: 2
-    },
-    950: {
-      slidesPerView: 3
-    }
-  }"
-  >
-    <swiper-slide class="p-3" v-for="house in housesFiltered" :key="house.id">
+    >
+      <swiper-slide class="p-3 my-3" v-for="house in housesFiltered" :key="house.id">
 
-      <router-link :to="{name: 'houseDetails', params:{slug: house.slug}}" class="d-inline-block">
+        <router-link :to="{name: 'houseDetails', params:{slug: house.slug}}" class="d-inline-block">
 
-        <div class="castle ">
-  
-          <div class="bg-castle">
-
-            <div class="diagonal badge color">
-              <i class="fa-solid fa-star"></i>
-              sponsorizzato
-              <i class="fa-solid fa-star"></i>
-              
-            </div>
-  
-            <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
-  
-            <router-link :to="{name: 'houseDetails', params:{slug : house.slug}}"><h4>{{ house.title }}</h4></router-link>
-          </div>
-  
-        </div>
-      </router-link>
-
-    </swiper-slide>
+          <div class="castle ">
     
-  </swiper>
+            <div class="bg-castle">
 
+              <div class="diagonal badge color">
+                <i class="fa-solid fa-star"></i>
+                sponsorizzato
+                <i class="fa-solid fa-star"></i>
+                
+              </div>
+    
+              <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
+    
+              <router-link :to="{name: 'houseDetails', params:{slug : house.slug}}"><h4>{{ house.title }}</h4></router-link>
+            </div>
+    
+          </div>
+        </router-link>
+
+      </swiper-slide>
+      
+    </swiper>
+
+    </div>
+
+    
+    <Loader v-else />
   </div>
-
-  
-  <Loader v-else />
 
 
 </template>
@@ -132,6 +134,9 @@ import Loader from '../../partials/Loader.vue';
 <style lang="scss" scoped>
 @import '../../../assets/scss/partials/variables.scss';
 
+h3{
+  color: $dark-color;
+}
 
 .castle{
   padding: 0;
