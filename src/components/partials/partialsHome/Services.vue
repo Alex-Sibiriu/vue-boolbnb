@@ -72,7 +72,7 @@
 <template>
   <div class="my-5 pt-5">
 
-    <h3 class="text-center my-3">Servizi esclusivi</h3>
+    <h3 class="text-center my-3 fw-bold">Servizi esclusivi</h3>
 
     <div class="container-fluid my-3 p-5" v-if="loading">
 

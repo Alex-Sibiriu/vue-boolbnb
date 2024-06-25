@@ -73,7 +73,8 @@ import Services from '../components/partials/partialsHome/Services.vue';
   padding: 200px 0;
   background-color: $dark-color;
   color: $light-color;
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-family: "Lobster", sans-serif;
   
   img{
     object-fit: cover;

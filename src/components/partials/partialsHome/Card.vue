@@ -2,6 +2,8 @@
 import {store} from '../../../data/store.js';
 import axios from 'axios';
 import Loader from '../../partials/Loader.vue';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -30,8 +32,15 @@ import Loader from '../../partials/Loader.vue';
         store,
         loading: true,
         housesFiltered: [],
-        houses: []
+        houses: [],
+        
       }
+    },
+
+    setup() {
+      return {
+        modules: [Navigation],
+      };
     },
 
     methods:{
@@ -68,14 +77,15 @@ import Loader from '../../partials/Loader.vue';
 </script>
     
 <template>
-  <div class="my-5 pt-5">
+  <div class="my-5 py-5">
 
-    <h3 class="text-center my-5">Castelli in primo piano</h3>
+    <h3 class="text-center my-5 fw-bold">Castelli in primo piano</h3>
 
     <div v-if="!loading" class="">
 
       
       <swiper
+      :navigation="true"
       :slidesPerView="1"
       :centeredSlides="true"
       :spaceBetween="30"
@@ -195,8 +205,9 @@ h3{
 
 
 // swiper
-.swiper{
+.swiper {
   height: 100%;
+  
 }
 
 .swiper-slide {
@@ -205,6 +216,7 @@ h3{
   justify-content: center;
   align-items: center;
 }
+
 
 
 
