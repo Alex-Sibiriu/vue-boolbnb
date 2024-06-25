@@ -98,9 +98,15 @@ import { Navigation } from 'swiper/modules';
       class="mySwiper"
       :breakpoints="{
       680: {
-        slidesPerView: 2
+        slidesPerView: 1
       },
       950: {
+        slidesPerView: 1
+      },
+      1150: {
+        slidesPerView: 2
+      },
+      1650: {
         slidesPerView: 3
       }
     }"
@@ -162,7 +168,7 @@ h3{
     
     img{
       border-radius: 10px;
-      max-width: 600px;
+      max-width: 550px;
       object-fit: contain;
     
     }
