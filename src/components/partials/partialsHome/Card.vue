@@ -162,7 +162,7 @@ h3{
     
     img{
       border-radius: 10px;
-      width: 625px;
+      max-width: 600px;
       object-fit: contain;
     
     }
