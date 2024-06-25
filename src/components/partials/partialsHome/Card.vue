@@ -162,9 +162,8 @@ h3{
     
     img{
       border-radius: 10px;
-      width: 100%;
+      width: 625px;
       object-fit: contain;
-      // aspect-ratio: 2/1;
     
     }
 
