@@ -13,11 +13,11 @@ import {store} from '../../../data/store.js';
 <template>
 
   <h2 v-if="store.serviceName != '' ">Castelli con {{ store.serviceName }}</h2>
-  <div class="row  pb-5 row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
-    <div class="col mb-5 px-4 justify-content-center d-flex" v-for="castle in store.houses" :key="castle.id">
+  <div class="row  pb-5 row-cols-1 row-cols-md-2 row-cols-lg-3 ">
+    <div class="col mb-5 px-4 " v-for="castle in store.houses" :key="castle.id">
 
       <router-link :to="{name: 'houseDetails', params:{slug: castle.slug}}">
-        <div class="castle h-100 rounded-2 position-relative">
+        <div class="castle rounded-2 position-relative">
           
           <div class="diagonal badge color" v-if="castle.sponsors.length > 0">
             <i class="fa-solid fa-star"></i>
@@ -25,9 +25,9 @@ import {store} from '../../../data/store.js';
             <i class="fa-solid fa-star"></i>
           </div>
 
-          <img src="https://siviaggia.it/wp-content/uploads/sites/2/2021/09/Castello-di-Neuschwanstein.jpg" alt="">
-          <h4 class="p-2">{{ castle.title }}</h4>
-          <p class="ps-2">{{ castle.address }}</p>
+          <img :src="`http://127.0.0.1:8000/storage/${castle.images[0].image_path}`" alt="">
+          <h5 class="p-2">{{ castle.title }}</h5>
+
         </div>
       </router-link>
 
@@ -55,9 +55,11 @@ h2 {
   color: $light-color;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+
   img{
     width: 100%;
     object-fit: cover;
+    height: 250px;
   }
 }
 a{

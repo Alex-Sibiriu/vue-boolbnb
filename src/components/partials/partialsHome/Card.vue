@@ -120,8 +120,9 @@ import { Navigation } from 'swiper/modules';
                 
               </div>
     
-              <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
+              <img :src="`http://127.0.0.1:8000/storage/${house.images[0].image_path}`" alt="">
     
+          
               <router-link :to="{name: 'houseDetails', params:{slug : house.slug}}"><h4>{{ house.title }}</h4></router-link>
             </div>
     
@@ -155,22 +156,29 @@ h3{
   
   .bg-castle{
     position: relative;
-
     overflow: hidden;
+    height: 300px;
+    padding: 0;
     
     img{
       border-radius: 10px;
-      width: 100%;
-      object-fit: cover;
+      width: 625px;
+      object-fit: contain;
     
     }
 
     a{
       position: absolute;
-      left: 5px;
+      right: 0;
       bottom: 0;
+      padding: 5px 10px 0 10px;
+      border-radius: 25px 0 0 0;
       text-decoration: none;
-      color: rgb(6, 45, 77);
+      color: $light-color;
+    
+      box-shadow: $dark-color 0px 30px 60px -12px inset, $dark-color 0px 18px 36px -18px inset;
+ 
+
     }
 
     .badge {
