@@ -8,15 +8,17 @@ import {store} from '../../../data/store.js';
         store,
       }
     },
+
+ 
   }
 </script>
 <template>
 
   <h2 v-if="store.serviceName != '' ">Castelli con {{ store.serviceName }}</h2>
   <div class="row  pb-5 row-cols-1 row-cols-md-2 row-cols-lg-3 ">
-    <div class="col mb-5 px-4 " v-for="castle in store.houses" :key="castle.id">
+    <div class="col mb-5 px-4 " v-for="castle in store.houses" :key="castle.id" >
 
-      <router-link :to="{name: 'houseDetails', params:{slug: castle.slug}}">
+      <router-link :to="{name: 'houseDetails', params:{slug: castle.slug}}" >
         <div class="castle position-relative">
           
           <div class="diagonal badge color" v-if="castle.sponsors.length > 0">
@@ -35,7 +37,7 @@ import {store} from '../../../data/store.js';
 
             <img :src="`http://127.0.0.1:8000/storage/${castle.images[0].image_path}`" alt="">
           </div>
-          <h5 class="">{{ castle.title }}</h5>
+          <h5 class="text-capitalize">{{ castle.title }}</h5>
 
         </div>
       </router-link>

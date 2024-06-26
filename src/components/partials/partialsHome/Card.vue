@@ -129,7 +129,7 @@ import { Navigation } from 'swiper/modules';
               <img :src="`http://127.0.0.1:8000/storage/${house.images[0].image_path}`" alt="">
     
           
-              <router-link :to="{name: 'houseDetails', params:{slug : house.slug}}"><h4>{{ house.title }}</h4></router-link>
+              <router-link :to="{name: 'houseDetails', params:{slug : house.slug}}"><h4 class=" text-capitalize">{{ house.title }}</h4></router-link>
             </div>
     
           </div>
@@ -163,7 +163,7 @@ h3{
   .bg-castle{
     position: relative;
     overflow: hidden;
-    height: 300px;
+    height: 280px;
     padding: 0;
     
     img{
