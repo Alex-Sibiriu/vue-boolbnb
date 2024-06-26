@@ -52,10 +52,10 @@ import { Navigation } from 'swiper/modules';
         .then(result =>{
           this.loading = false;
           this.houses = result.data;
-          console.log(result.data);
+         
 
           this.getSponsored();
-          console.log(this.housesFiltered);
+       
         })
         .catch(error =>{
           this.loading = false;
@@ -65,8 +65,23 @@ import { Navigation } from 'swiper/modules';
 
       // funzione per estrapolare solo i castelli con lo sponsor
       getSponsored(){
-        this.housesFiltered = this.houses.filter(house=> house.sponsors.length > 0)
-        console.log(this.housesFiltered);
+        this.housesFiltered = [];
+
+        let date = new Date();
+     
+        this.houses.forEach(house => {
+
+          if(!house.sponsors || house.sponsors.length === 0){
+           
+          return;
+
+        }else if(house.sponsors.some(sponsor => new Date(sponsor.pivot.expiration_date) > date)){
+
+          this.housesFiltered.push(house);
+         
+        }
+        });
+        
       },
     },
 
