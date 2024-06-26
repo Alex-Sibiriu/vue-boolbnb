@@ -284,6 +284,11 @@
   .swiper {
     width: 100%;
     height: 20%;
+
+    img{
+      height: 700px;
+      object-fit: cover;
+    }
   }
 
   .swiper-slide {

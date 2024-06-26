@@ -9,7 +9,22 @@ import {store} from '../../../data/store.js';
       }
     },
 
- 
+    methods:{
+
+      hasValidSponsor(castle) {
+        const currentDate = new Date();
+        if (!castle.sponsors || castle.sponsors.length === 0) {
+          return false;
+        }
+        console.log(currentDate);
+        return castle.sponsors.some(sponsor => new Date(sponsor.pivot.expiration_date) > currentDate);
+      },
+   
+    },
+
+    mounted(){
+      
+    }
   }
 </script>
 <template>
@@ -21,7 +36,7 @@ import {store} from '../../../data/store.js';
       <router-link :to="{name: 'houseDetails', params:{slug: castle.slug}}" >
         <div class="castle position-relative">
           
-          <div class="diagonal badge color" v-if="castle.sponsors.length > 0">
+          <div class="diagonal badge color" v-if="hasValidSponsor(castle)">
             <i class="fa-solid fa-star"></i>
             sponsorizzato
             <i class="fa-solid fa-star"></i>
