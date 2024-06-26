@@ -17,7 +17,7 @@ import {store} from '../../../data/store.js';
     <div class="col mb-5 px-4 " v-for="castle in store.houses" :key="castle.id">
 
       <router-link :to="{name: 'houseDetails', params:{slug: castle.slug}}">
-        <div class="castle rounded-2 position-relative">
+        <div class="castle position-relative">
           
           <div class="diagonal badge color" v-if="castle.sponsors.length > 0">
             <i class="fa-solid fa-star"></i>
@@ -25,8 +25,17 @@ import {store} from '../../../data/store.js';
             <i class="fa-solid fa-star"></i>
           </div>
 
-          <img :src="`http://127.0.0.1:8000/storage/${castle.images[0].image_path}`" alt="">
-          <h5 class="p-2">{{ castle.title }}</h5>
+          <!-- <div class="icons" >
+            <ul v-for="service in castle.services" :key="service">
+              <li class=""><i :class=" service.icon "></i> </li>
+            </ul>
+          </div> -->
+
+          <div class="d-flex justify-content-center align-items-center">
+
+            <img :src="`http://127.0.0.1:8000/storage/${castle.images[0].image_path}`" alt="">
+          </div>
+          <h5 class="">{{ castle.title }}</h5>
 
         </div>
       </router-link>
@@ -51,15 +60,44 @@ h2 {
   justify-content: start !important;
 }
 .castle{
-  background-color: $dark-color;
+  // background-color: $dark-color;
   color: $light-color;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  border: 3px solid $dark-color;
+
+  &:hover{
+
+    scale: 1.1;
+    transition: .4s;
+  }
 
   img{
     width: 100%;
     object-fit: cover;
     height: 250px;
+  }
+
+  .icons{
+    position: absolute;
+    right: 2px;
+    top: 2px;
+
+    ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+     li{
+      color: $brand-color;
+     }
+    }
+  }
+
+  h5{
+    background-color: $light-color;
+    color: $dark-color;
+    margin-top: 5px;
+    padding-left: 3px;
   }
 }
 a{
