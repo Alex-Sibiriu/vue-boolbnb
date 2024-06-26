@@ -5,27 +5,21 @@
   import Map from '../components/partials/Map.vue';
   import '@tomtom-international/web-sdk-maps/dist/maps.css';
 
-  import { ref } from 'vue';
+  // serve per la mappa di alex?
+  // import { ref } from 'vue'; 
+
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
-
-  // Import Swiper styles
-  import 'swiper/css';
-
-  import 'swiper/css/free-mode';
-  import 'swiper/css/navigation';
-  import 'swiper/css/thumbs';
-
   // import required modules
-  import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+  import { Pagination } from 'swiper/modules';
 
   export default {
     name: 'HouseDetail',
     components: {
       Loader,
+      Map,
       Swiper,
       SwiperSlide,
-      Map
     },
     data(){
       return{
@@ -46,18 +40,9 @@
         allCastles: [],
       }
     },
-
     setup() {
-      const thumbsSwiper = ref(null);
-
-      const setThumbsSwiper = (swiper) => {
-        thumbsSwiper.value = swiper;
-      };
-
       return {
-        thumbsSwiper,
-        setThumbsSwiper,
-        modules: [FreeMode, Navigation, Thumbs],
+        modules: [Pagination],
       };
     },
 
@@ -84,6 +69,7 @@
         .then(result =>{
           this.loading = true;
           this.house = result.data;
+          // console.log(this.house);
           this.longitude = parseFloat(result.data.longitude);
           this.latitude = parseFloat(result.data.latitude) ;
 
@@ -124,37 +110,20 @@
 <template>
   <div class="container" v-if="loading == false">
     <h1 class="my-5">{{ house.title }}</h1>
-    <div>
+    <div class="container-swiper">
 
-      <swiper :style="{
-      '--swiper-navigation-color': '#fff',
-      '--swiper-pagination-color': '#fff',
-    }" :loop="true" :spaceBetween="10" :navigation="true" :thumbs="{ swiper: thumbsSwiper }" :modules="modules"
-        class="mySwiper2">
-        <swiper-slide><img src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-9.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-10.jpg" /></swiper-slide>
-      </swiper>
-      <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" :slidesPerView="4" :freeMode="true"
-        :watchSlidesProgress="true" :modules="modules" class="mySwiper">
-        <swiper-slide><img src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-9.jpg" /></swiper-slide><swiper-slide><img
-            src="https://swiperjs.com/demos/images/nature-10.jpg" /></swiper-slide>
-      </swiper>
+      <swiper :loop="true" 
+    :pagination="{
+      dynamicBullets: true,
+    }"
+    :modules="modules"
+    class="mySwiper"
+  >
+    <swiper-slide v-for="image in house.images" :key="image.id">
+      <img :src="`http://127.0.0.1:8000/storage/${image.image_path}`" alt=""> 
+    </swiper-slide>
+    
+  </swiper>
 
       
     </div>
@@ -312,83 +281,26 @@
     }
   }
 
-  // css swiper
-  .mySwiper2{
-    height: 600px !important;
-  }
-  
-  .mySwiper{
-    height: 200px !important;
-  }
-  
-
   .swiper {
-  width: 100%;
+    width: 100%;
+    height: 20%;
+  }
 
-}
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-body {
-  background: #000;
-  color: #000;
-}
-
-.swiper {
-  width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
-.mySwiper2 {
-  height: 80%;
-  width: 100%;
-}
-
-.mySwiper {
-  height: 20%;
-  box-sizing: border-box;
-  padding: 10px 0;
-}
-
-.mySwiper .swiper-slide {
-  width: 25%;
-  height: 100%;
-  opacity: 0.4;
-}
-
-.mySwiper .swiper-slide-thumb-active {
-  opacity: 1;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 </style>
