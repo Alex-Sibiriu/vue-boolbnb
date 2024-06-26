@@ -1,17 +1,30 @@
 <script>
-import Loader from '../components/partials/Loader.vue'
+
 import Card from '../components/partials/partialsHome/Card.vue';
 import Services from '../components/partials/partialsHome/Services.vue';
+import {store} from '../data/store';
 
 
    export default {
     name: 'Home',
 
+    data(){
+      return{
+        store,
+        
+      }
+    },
+
+
     components:{
-      Loader,
       Card,
       Services,
 
+    },
+
+    mounted(){
+      this.store.inputAddress = '';
+      this.store.searchServices = [];
     }
      
   }

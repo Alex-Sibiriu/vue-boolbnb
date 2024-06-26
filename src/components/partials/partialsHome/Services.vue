@@ -96,7 +96,7 @@
       <swiper-slide v-for="service in favServices" :key="service.id" class="position-relative">
 
         <div class="text p-2">
-          <router-link @click="toggleService(service)" :to="{name: 'houses'}" class="text-light">
+          <router-link @click="store.inputAddress = '' , toggleService(service)" :to="{name: 'houses'}" class="text-light">
             <h5 class="title"><i :class="service.icon" class="me-2"></i>{{service.name}}</h5>
             <p class="description">{{ service.description }}</p>
           </router-link>
