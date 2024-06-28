@@ -14,11 +14,13 @@
 
   import {store} from '../../data/store';
   import axios from 'axios';
+  import Dropdown from '../partials/partialsHome/Dropdown.vue';
 
   export default {
     components: {
       Swiper,
       SwiperSlide,
+      Dropdown,
     },
     setup() {
       return {
@@ -135,17 +137,7 @@
       <img src="/img/logo2.png" alt="logo sito">
 
       
-      <div class="dropdown">
-        <a class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-user"></i>
-        </a>
-
-        <ul class="dropdown-menu border-0 mt-2 ">
-          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/">Accedi</a></li>
-          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/register">Registrati</a></li>
-         
-        </ul>
-      </div>
+      <Dropdown />
 
       
     </nav>
@@ -182,17 +174,7 @@
         <router-link :to="{name: 'home'}"><img src="/img/logo2.png" alt="logo sito"></router-link>
 
       </div>
-      <div class="dropdown">
-        <a class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-user"></i>
-        </a>
-
-        <ul class="dropdown-menu border-0 mt-2 ">
-          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/">Accedi</a></li>
-          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/register">Registrati</a></li>
-         
-        </ul>
-      </div>
+      <Dropdown />
     </nav>
   </header>
 
