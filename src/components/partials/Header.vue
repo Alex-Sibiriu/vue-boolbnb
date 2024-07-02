@@ -136,8 +136,8 @@
 
       
       <div>
-        <a href="http://127.0.0.1:8000/admin/houses">
-          Area Privata
+        <a href="http://127.0.0.1:8000/admin">
+           <span>Area Privata</span>
           <i class="fa-solid fa-user"></i>
         </a>
       </div>
@@ -183,8 +183,8 @@
 
       </div>
       <div class="flex-shrink-0">
-        <a href="http://127.0.0.1:8000/admin/houses">
-          <span class="me-2 fs-5">Area Privata</span>
+        <a href="http://127.0.0.1:8000/admin">
+          <span >Area Privata</span>
           <i class="fa-solid fa-user"></i>
         </a>
       </div>
@@ -210,6 +210,10 @@ nav {
   a {
     font-size: 1.5rem;
     color: #eaeaea;
+    span{
+      font-size: 1rem;
+      margin-right: 10px;
+    }
   }
 }
 

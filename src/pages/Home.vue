@@ -44,7 +44,7 @@ import {store} from '../data/store';
 
         <div class="col-12 col-lg-7 ">
 
-          <p class="m-0">
+          <p class="m-0 text-lg-start text-center">
             <span>
 
               <i class="fa-solid fa-quote-left"></i> 
@@ -61,7 +61,7 @@ import {store} from '../data/store';
           </p>
     
         </div>
-        <div class="col-12 col-lg-5">
+        <div class="col-12 col-lg-5 text-center">
   
           <img src="/img/favicon.png" alt="logo" class="w-75" >
         </div>

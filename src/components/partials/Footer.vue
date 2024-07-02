@@ -37,7 +37,7 @@ import { store } from '../../data/store'
             </div>
             
             <h5>BoolBnb</h5>
-            <h6 class="mb-2">P.I {{ this.store.footerDates[4].pIva }}</h6>
+            <h6 class="mb-2">P.I. {{ this.store.footerDates[4].pIva }}</h6>
             <h6>{{ this.store.footerDates[3].pIva }}</h6>
             <h6>{{ this.store.footerDates[2].address }}</h6>
             <h6>{{ this.store.footerDates[1].phone }}</h6>
