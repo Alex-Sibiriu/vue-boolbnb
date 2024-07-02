@@ -135,16 +135,11 @@
       <img src="/img/logo2.png" alt="logo sito">
 
       
-      <div class="dropdown">
-        <a class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <div>
+        <a href="http://127.0.0.1:8000/admin/houses">
+          Area Privata
           <i class="fa-solid fa-user"></i>
         </a>
-
-        <ul class="dropdown-menu border-0 mt-2 ">
-          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/">Accedi</a></li>
-          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/register">Registrati</a></li>
-         
-        </ul>
       </div>
 
       
@@ -167,7 +162,12 @@
                 v-for="(suggestion, index) in suggestions"
                 :key="`sug-${index}`"
                 @click.stop="selectSuggestion(suggestion)"
-                class="bg-white p-1 ps-3 m-0 border-bottom border-secondary-subtle">{{ suggestion }}</p>
+                class="bg-white p-1 ps-2 m-0 border-bottom border-secondary-subtle d-flex">
+                <span class="icons text-secondary">
+                  <i class="fa-solid fa-location-dot me-2"></i>
+                </span>
+                {{ suggestion }}
+              </p>
             </div>
         </div>
       </form>
@@ -182,16 +182,11 @@
         <router-link :to="{name: 'home'}"><img src="/img/logo2.png" alt="logo sito"></router-link>
 
       </div>
-      <div class="dropdown">
-        <a class=" dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <div class="flex-shrink-0">
+        <a href="http://127.0.0.1:8000/admin/houses">
+          <span class="me-2 fs-5">Area Privata</span>
           <i class="fa-solid fa-user"></i>
         </a>
-
-        <ul class="dropdown-menu border-0 mt-2 ">
-          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/">Accedi</a></li>
-          <li><a class="dropdown-item fs-5" href="http://127.0.0.1:8000/register">Registrati</a></li>
-         
-        </ul>
       </div>
     </nav>
   </header>
@@ -216,16 +211,6 @@ nav {
     font-size: 1.5rem;
     color: #eaeaea;
   }
-
-  
-  
-  .dropdown-menu{
-    background-color: rgba(157, 6, 26, 0.699); 
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
-    z-index: 99;
-    
-  }
-
 }
 
 
@@ -253,6 +238,10 @@ nav {
 
   .suggestions {
     cursor: pointer;
+    .icons {
+      display: inline-block;
+      width: fit-content;
+    }
   }
 }
 
@@ -287,17 +276,15 @@ nav {
 header{
   height: 100px;
   background-color: $dark-color ;
-  
+
+  overflow: hidden;
+
   .logo{
     img{
-      width: 25%;
+      height: 130px;
+      padding-top: 10px;
     }
   }
 }
 
-@media screen and (max-width: 768px) {
-  .searchbar {
-    width: 90% !important;
-  }
-}
 </style>

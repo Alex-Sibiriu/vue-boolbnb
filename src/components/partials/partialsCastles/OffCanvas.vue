@@ -156,7 +156,7 @@ import {store} from '../../../data/store.js';
           <div class="">
             <h5>Servizi:</h5>
 
-            <div class="btn-group m-2" role="group" aria-label="Basic checkbox toggle button group"
+            <div class="btn-group m-2 d-flex flex-wrap" role="group" aria-label="Basic checkbox toggle button group"
               v-for="service in store.services" :key="service.id">
              <input
                 type="checkbox"
@@ -164,7 +164,7 @@ import {store} from '../../../data/store.js';
                 :id="service.id"
                 :checked="isServiceChecked(service.id)"
                 @change="toggleService(service.id)">
-              <label class="btn btn-outline-primary" :for="service.id">{{ service.name }}</label>
+              <label class="btn btn-outline-primary" :class="{'btn-hover': !isServiceChecked(service.id)}" :for="service.id"><i :class="service.icon" class="pe-2"></i>{{ service.name }}</label>
             </div>
           </div>
 
@@ -185,5 +185,11 @@ import {store} from '../../../data/store.js';
 
 <style lang="scss" scoped>
 
+.btn-hover {
+  transition: all .3s;
+  &:hover {
+    background-color: rgb(216, 240, 255);
+  }
+}
 
 </style>

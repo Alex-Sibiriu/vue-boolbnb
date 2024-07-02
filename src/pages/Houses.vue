@@ -64,6 +64,7 @@ import Navbar from '../components/partials/partialsHome/Navbar.vue';
 
     mounted() {
       this.getFilteredCastles();
+      window.scrollTo(0, 0);
     }
   }
 </script>
@@ -72,15 +73,15 @@ import Navbar from '../components/partials/partialsHome/Navbar.vue';
     
     <div class="row my-5">
       
-      <div class="col col-10">
+      <div class="col col-8">
         <h2>Risultati di ricerca:</h2>
         
         <Navbar />
       </div>
 
-      <div class="col col-2 d-flex align-items-center justify-content-end">
+      <div class="col col-4 pt-3 d-flex align-items-center justify-content-end">
 
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Filtri</button>
+        <button class="btn btn-primary fw-medium mt-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Filtri Avanzati</button>
       </div>
 
 
