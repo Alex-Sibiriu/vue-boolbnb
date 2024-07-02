@@ -276,7 +276,9 @@ nav {
 header{
   height: 100px;
   background-color: $dark-color ;
+
   overflow: hidden;
+
   .logo{
     img{
       height: 130px;
