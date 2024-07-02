@@ -269,7 +269,7 @@ nav {
 header{
   height: 100px;
   background-color: $dark-color ;
-  margin-bottom: 10px;
+  
   .logo{
     img{
       width: 25%;

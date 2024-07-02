@@ -9,7 +9,12 @@ import { store } from '../../data/store'
     },
     methods:{
 
+    },
+    computed: {
+    is404() {
+      return this.$route.name === 'error404';
     }
+  }
 
      
   }
@@ -19,7 +24,7 @@ import { store } from '../../data/store'
 
 
   
-    <div class="footer py-3">
+    <div class="footer py-3" v-if="!is404">
       <div class="container">
 
         <div class="row">
