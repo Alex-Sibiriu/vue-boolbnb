@@ -9,6 +9,7 @@
 <template>
 
 
+
   <div class="error d-flex justify-content-center align-items-center">
 
     <div class="errorText text-center">
@@ -18,9 +19,16 @@
       <h2>Pagina non trovata</h2>
     </div>
 
+
+
+
     
 
+
    
+
+
+
 
   </div>
 
@@ -28,6 +36,7 @@
 </template>
 
 <style lang="scss" scoped>
+
 .error{
   background-image: url('/public/img/burning-castle.jpg');
   
@@ -50,4 +59,7 @@
     text-shadow: black 3px 3px 3px ;
   }
 }
+
+
+
 </style>
