@@ -44,7 +44,7 @@ import {store} from '../data/store';
 
         <div class="col-12 col-lg-7 ">
 
-          <p class="m-0 text-lg-start text-center">
+          <p class="m-0 text-lg-start text-center banner-blu" >
             <span>
 
               <i class="fa-solid fa-quote-left"></i> 
@@ -97,13 +97,17 @@ import {store} from '../data/store';
 
   .row{
 
-    .m-0{
+    .banner-blu{
 
       line-height: 2.5rem;
       span{
         font-size: 2.5rem;
       }
     }
+  }
+
+  @media screen and (max-width: 420px){
+    font-size: 1.5rem;
   }
 }
 

@@ -296,7 +296,7 @@
     height: 20%;
 
     img{
-      height: 700px;
+
       object-fit: cover;
     }
   }

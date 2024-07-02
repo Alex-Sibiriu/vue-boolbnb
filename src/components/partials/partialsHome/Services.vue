@@ -154,4 +154,24 @@ h3{
 
 }
 
+@media screen and (max-width: 550px) {
+  .swiper-slide {
+    width: 300px;
+    height: 300px;
+  }
+}
+@media screen and (max-width: 420px) {
+      .swiper-slide {
+      width: 200px;
+      height: 200px;
+    }
+
+    .swiper-slide .text{
+      font-size: 0.7rem;
+      h5{
+        font-size: 0.8rem;
+      }
+    }
+  }
+
 </style>
