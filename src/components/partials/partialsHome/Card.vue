@@ -178,13 +178,17 @@ h3{
   .bg-castle{
     position: relative;
     overflow: hidden;
-    height: 280px;
+    height: 100%;
     padding: 0;
+   
     
     img{
       border-radius: 10px;
+      overflow: hidden;
       max-width: 550px;
       object-fit: contain;
+      height: 100%;
+
     
     }
 
@@ -246,7 +250,17 @@ h3{
   align-items: center;
 }
 
-
+@media screen and (max-width: 500px) {
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .castle{
+    height: 190px;
+    
+  }
+}
 
 
 </style>

@@ -145,7 +145,7 @@
       
     </nav>
 
-    <div class="searchbar position-absolute p-5 rounded-3 z-1 w-50">
+    <div class="searchbar position-absolute p-5 rounded-3 z-1 ">
       <form class="form-inline" @submit.prevent="submitForm">
         <h2 class="fs-4">Dove vivrai la tua prossima favola?</h2>
 
@@ -225,6 +225,8 @@ nav {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+  width: 90%;
+  max-width: 1000px;
 
   
   h2{
@@ -248,6 +250,7 @@ nav {
     }
   }
 }
+
 
 
 /* Stili Swiper */
