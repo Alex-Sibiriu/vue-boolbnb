@@ -77,7 +77,15 @@
         })
         .catch(errors => {
           this.loading = false;
+          
           console.log(errors.message);
+
+          if (errors.response && errors.response.status === 404) {
+          this.$router.push({ name: 'error404' });
+        } else {
+          console.log(errors.message);
+        }
+          
         })
       },
 
