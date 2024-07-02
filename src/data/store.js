@@ -1,4 +1,15 @@
-import { reactive } from 'vue'
+import { reactive, watchEffect } from 'vue'
+
+// Funzione per leggere dal localStorage
+const loadFromLocalStorage = (key, defaultValue) => {
+  const value = localStorage.getItem(key);
+  return value ? JSON.parse(value) : defaultValue;
+};
+
+// Funzione per salvare nel localStorage
+const saveToLocalStorage = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
 
 export const store = reactive({
   apiUrl: 'http://127.0.0.1:8000/api/',
@@ -8,12 +19,12 @@ export const store = reactive({
 
   house:{},
 
-  inputAddress: '',
-  searchRange: 100,
-  searchBath: 1,
-  searchRooms: 1,
-  searchBeds: 1,
-  searchServices: [],
+  inputAddress: loadFromLocalStorage('inputAddress', ''),
+  searchRange: loadFromLocalStorage('searchRange', 100),
+  searchBath: loadFromLocalStorage('searchBath', 1),
+  searchRooms: loadFromLocalStorage('searchRooms', 1),
+  searchBeds: loadFromLocalStorage('searchBeds', 1),
+  searchServices: loadFromLocalStorage('searchServices', []),
 
   serviceName: '',
 
@@ -61,3 +72,13 @@ export const store = reactive({
   ]
 
 })
+
+// Watcher per salvare automaticamente i cambiamenti nel localStorage
+watchEffect(() => {
+  saveToLocalStorage('inputAddress', store.inputAddress);
+  saveToLocalStorage('searchRange', store.searchRange);
+  saveToLocalStorage('searchBath', store.searchBath);
+  saveToLocalStorage('searchRooms', store.searchRooms);
+  saveToLocalStorage('searchBeds', store.searchBeds);
+  saveToLocalStorage('searchServices', store.searchServices);
+});

@@ -11,7 +11,7 @@
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
   // import required modules
-  import { Pagination } from 'swiper/modules';
+  import { Pagination, Navigation } from 'swiper/modules';
 
   export default {
     name: 'HouseDetail',
@@ -42,7 +42,7 @@
     },
     setup() {
       return {
-        modules: [Pagination],
+        modules: [Pagination, Navigation],
       };
     },
 
@@ -102,6 +102,7 @@
     mounted(){
       // this.getAllCastles();
       this.getApi();
+      window.scrollTo(0, 0);
     }
   
   }
@@ -113,12 +114,13 @@
     <div class="container-swiper">
 
       <swiper :loop="true" 
-    :pagination="{
-      dynamicBullets: true,
-    }"
-    :modules="modules"
-    class="mySwiper"
-  >
+      :navigation="true"
+      :pagination="{
+        dynamicBullets: true,
+      }"
+      :modules="modules"
+      class="mySwiper"
+    >
     <swiper-slide v-for="image in house.images" :key="image.id">
       <img :src="`http://127.0.0.1:8000/storage/${image.image_path}`" alt=""> 
     </swiper-slide>

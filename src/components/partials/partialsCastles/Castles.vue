@@ -42,17 +42,11 @@ import {store} from '../../../data/store.js';
             <i class="fa-solid fa-star"></i>
           </div>
 
-          <!-- <div class="icons" >
-            <ul v-for="service in castle.services" :key="service">
-              <li class=""><i :class=" service.icon "></i> </li>
-            </ul>
-          </div> -->
-
           <div class="d-flex justify-content-center align-items-center">
 
             <img :src="`http://127.0.0.1:8000/storage/${castle.images[0].image_path}`" alt="">
           </div>
-          <h5 class="text-capitalize">{{ castle.title }}</h5>
+          <h5 class="text-capitalize ps-2 py-1">{{ castle.title }}</h5>
 
         </div>
       </router-link>
@@ -77,7 +71,7 @@ h2 {
   justify-content: start !important;
 }
 .castle{
-  // background-color: $dark-color;
+  background-color: $dark-color;
   color: $light-color;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -111,8 +105,9 @@ h2 {
   }
 
   h5{
-    background-color: $light-color;
-    color: $dark-color;
+    // background-color: $light-color;
+    // color: $dark-color;
+    color: $light-color;
     margin-top: 5px;
     padding-left: 3px;
   }

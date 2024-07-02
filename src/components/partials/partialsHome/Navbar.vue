@@ -115,7 +115,7 @@
     
 
     
-    <div class="searchbar  w-50">
+    <div class="searchbar w-75">
       <form class="form-inline" @submit.prevent="getFilteredCastles">
 
         <div class="position-relative">
@@ -131,7 +131,12 @@
                 v-for="(suggestion, index) in suggestions"
                 :key="`sug-${index}`"
                 @click.stop="selectSuggestion(suggestion)"
-                class="bg-white p-1 ps-3 m-0 border-bottom border-secondary-subtle">{{ suggestion }}</p>
+                class="bg-white p-1 ps-2 m-0 border-bottom border-secondary-subtle d-flex">
+                <span class="icons text-secondary">
+                  <i class="fa-solid fa-location-dot me-2"></i>
+                </span>
+                {{ suggestion }}
+              </p>
             </div>
         </div>
       </form>
@@ -146,12 +151,13 @@
 <style lang="scss" scoped>
 @import '../../../assets/scss/partials/variables.scss';
 
-
-
-
-/* Aggiungi stile al form */
 .searchbar {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  input:focus, select:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+}
   h2{
     color: #eaeaea;
     margin-bottom: 30px;
@@ -165,8 +171,13 @@
     height: 100%;
   }
   .suggestions {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     z-index: 999;
+    .icons {
+      display: inline-block;
+      width: fit-content;
+    }
   }
 }
 

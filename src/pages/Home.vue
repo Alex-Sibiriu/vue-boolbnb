@@ -25,6 +25,7 @@ import {store} from '../data/store';
     mounted(){
       this.store.inputAddress = '';
       this.store.searchServices = [];
+      window.scrollTo(0, 0);
     }
      
   }
