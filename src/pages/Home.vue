@@ -15,16 +15,24 @@ import {store} from '../data/store';
       }
     },
 
-
     components:{
       Card,
       Services,
+    },
 
+    methods: {
+      resetStorage() {
+        this.store.searchRooms = 1;
+        this.store.searchBeds = 1;
+        this.store.searchBath = 1;
+        this.store.searchRange = 100
+        this.store.inputAddress = '';
+        this.store.searchServices = [];
+      }
     },
 
     mounted(){
-      this.store.inputAddress = '';
-      this.store.searchServices = [];
+      this.resetStorage();
       window.scrollTo(0, 0);
     }
      
