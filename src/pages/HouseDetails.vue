@@ -130,7 +130,7 @@
       class="mySwiper"
     >
     <swiper-slide v-for="image in house.images" :key="image.id">
-      <img :src="`http://127.0.0.1:8000/storage/${image.image_path}`" alt=""> 
+      <img :src="`https://laravel-boolbnb-production.up.railway.app//storage/${image.image_path}`" alt=""> 
     </swiper-slide>
     
   </swiper>

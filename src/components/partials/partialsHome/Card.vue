@@ -141,7 +141,7 @@ import { Navigation } from 'swiper/modules';
                 
               </div>
               <img v-if="!house.images || !house.images[0] || !house.images[0].image_path" src="https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" alt="">
-              <img v-else :src="`http://127.0.0.1:8000/storage/${house.images[0].image_path}`" alt="">
+              <img v-else :src="`https://laravel-boolbnb-production.up.railway.app//storage/${house.images[0].image_path}`" alt="">
     
           
               <router-link :to="{name: 'houseDetails', params:{slug : house.slug}}"><h4 class=" text-capitalize">{{ house.title }}</h4></router-link>

@@ -136,7 +136,7 @@
 
       
       <div>
-        <a href="http://127.0.0.1:8000/admin">
+        <a href="https://laravel-boolbnb-production.up.railway.app/admin">
            <span>Area Privata</span>
           <i class="fa-solid fa-user"></i>
         </a>
@@ -183,7 +183,7 @@
 
       </div>
       <div class="flex-shrink-0">
-        <a href="http://127.0.0.1:8000/admin">
+        <a href="https://laravel-boolbnb-production.up.railway.app//admin">
           <span >Area Privata</span>
           <i class="fa-solid fa-user"></i>
         </a>

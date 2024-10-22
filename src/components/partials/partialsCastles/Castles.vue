@@ -44,7 +44,7 @@ import {store} from '../../../data/store.js';
 
           <div class="d-flex justify-content-center align-items-center">
 
-            <img :src="`http://127.0.0.1:8000/storage/${castle.images[0].image_path}`" alt="">
+            <img :src="`https://laravel-boolbnb-production.up.railway.app//storage/${castle.images[0].image_path}`" alt="">
           </div>
           <h5 class="text-capitalize ps-2 py-1">{{ castle.title }}</h5>
 
